@@ -28,15 +28,30 @@ function onReady() {
 
     //empty the input
     newToDoText.value = '';
-
   });
 }
-//remove item
-function removeItem(item){
-        var itemToRemove = document.getElementById(newli);
-        newLi.parentNode.removeChild(newli);
+
+var removeTask = document.createElement('input');
+    removeTask.setAttribute('type', 'button');
+    removeTask.setAttribute("value", "Delete");
+    removeTask.setAttribute("id", "deleteButton");
+    node.appendChild(deleteTask);
+    removeToDo.addEventListener('click', function() {
+      toDos.splice(index, 1);
+      toDoList.removeChild(newLi);
+    });
+    checkbox.type = 'checkbox';
+    newLi.innerHTML = toDo.title;
+    toDoList.appendChild(newLi);
+    newLi.appendChild(checkbox);
+    newLi.appendChild(deleteToDo);
+    });
 }
 
+  addToDoForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+  });
+}
 window.onload = function() {
   onReady();
 };
