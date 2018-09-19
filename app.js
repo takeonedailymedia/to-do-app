@@ -34,15 +34,13 @@ function onReady() {
     deleteBtn.innerHTML = '<span>Delete</span>';
 
     // attach the deleteBtn to the li
-    deleteBtn.appendChild(newLi);
+    newLi.appendChild(deleteBtn);
 
-    // add EventListener
-    deleteBtn.addEventListener('click', deleteBtn);
+    deleteBtn.addEventListener('click', function() {
+     newLi.parentNode.removeChild(newLi);
+  })
 
-    // remove the completed To-Do
-    deleteBtn.removeChild(newLi);
-
-    //empty the input
+    // empty the input
     newToDoText.value = '';
 
   });
