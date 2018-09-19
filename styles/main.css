@@ -13,5 +13,6 @@ header {
 ul, label, button, input {
     color: hsla(120, 100%, 25%, 0.7);
     font-weight: bold;
+    list-style: none;
     font-size: .8rem;
   }
