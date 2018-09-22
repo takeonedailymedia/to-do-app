@@ -1,51 +1,66 @@
+//#1
+let id = ()
 function onReady() {
+  const toDos = [];
   const addToDoForm = document.getElementById('addToDoForm');
-  const newToDoText = document.getElementById('newToDoText');
-  const toDoList = document.getElementById('toDoList');
-  addToDoForm.addEventListener('submit', () => {
-    event.preventDefault();
 
+  function createNewToDo() {
+    const newToDoText = document.getElementById('newToDoText');
+    if (!newToDoText.value) { return; }
 
-    // get the text
-    let title = newToDoText.value;
-
-    // create a new li
-    let newLi = document.createElement('li');
-
-    // create a new input
-    let checkbox = document.createElement('input');
-
-    // set the input's type to checkbox
-    checkbox.type = "checkbox";
-
-    // set the title
-    newLi.textContent = title;
-
-    // attach the checkbox to the li
-    newLi.appendChild(checkbox);
-
-    // attach the li to the ul
-    toDoList.appendChild(newLi);
-
-    // create a delete button
-    let deleteBtn = document.createElement("button");
-
-    // set the button name
-    deleteBtn.innerHTML = '<span>Delete</span>';
-
-    // attach the deleteBtn to the li
-    newLi.appendChild(deleteBtn);
-
-    deleteBtn.addEventListener('click', function() {
-     newLi.parentNode.removeChild(newLi);
-  })
-
-    // empty the input
+    toDos.push({
+          title: newToDoText.value,
+          complete: false
+          //#2 and #3
+          id: true () =>
+    });
     newToDoText.value = '';
 
-  });
-}
+    renderTheUI();
 
+  }
+
+  function renderTheUI() {
+    const toDoList = document.getElementById('toDoList');
+
+    toDoList.textContent = '';
+
+    toDos.forEach(function(toDo) {
+      const newLi = document.createElement('li');
+      const checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
+
+      newLi.textContent = toDo.title;
+
+      toDoList.appendChild(newLi);
+      newLi.appendChild(checkbox);
+
+   });
+  }
+  addToDoForm.addEventListener('submit', event => {
+      event.preventDefault();
+      createNewToDo();
+    });
+
+    renderTheUI()
+
+    // #4 create a delete button
+    let deleteBtn = document.createElement("button");
+
+    // #4 set the button name
+    deleteBtn.innerHTML = '<span>Delete</span>';
+
+    // #4 attach the deleteBtn to the li
+    newLi.appendChild(deleteBtn);
+
+    // #4 add listener
+    deleteBtn.addEventListener('click', function() {
+
+    // #5  unsure how to create an array from this
+    
+  })
+    // #6
+    renderTheUI()
 
 window.onload = function() {
   onReady();
