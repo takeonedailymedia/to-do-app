@@ -35,8 +35,12 @@ function onReady() {
     newLi.appendChild(checkbox);
     newLi.appendChild(deleteBtn);
 
-    deleteBtn.addEventListener('click', function() {
-    toDoList.filter(newLi => id !== 0)
+
+    function deleteToDoItem(newLi, toDos , toDoList) {
+        return toDoList( id => 0);
+
+    }
+
     });
   });
 }
