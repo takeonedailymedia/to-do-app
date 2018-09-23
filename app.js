@@ -42,8 +42,8 @@ function onReady() {
     }
 
     });
-  });
-}
+  };
+
     addToDoForm.addEventListener('submit', event => {
         event.preventDefault();
         createNewToDo();
